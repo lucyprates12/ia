@@ -1,0 +1,16 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+
+# Dados fictícios: tempo da missão (dias) e consumo de combustível (toneladas)
+dias_missao = np.array([10, 20, 30, 40, 50]).reshape(-1, 1)
+combustivel_consumido = np.array([100, 190, 280, 370, 460])
+
+# Criando e treinando o modelo de regressão
+modelo = LinearRegression()
+modelo.fit(dias_missao, combustivel_consumido)
+
+# Previsão para uma missão de 60 dias
+dias_futuros = np.array([60]).reshape(-1, 1)
+previsao = modelo.predict(dias_futuros)
+
+print(f"Previsão de consumo de combustível para 60 dias: {previsao[0]:.2f} toneladas")
